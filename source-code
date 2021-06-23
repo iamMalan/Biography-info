@@ -1,0 +1,52 @@
+'''
+Ask a user for their personal information one question at a time. Then check that the information they entered is valid. Finally, print a summary of all the information they entered back to them.
+'''
+
+info = {}
+
+
+def inputt():
+    def welcome():
+        print("Hey! Answer few questions ;)\n")
+    
+    welcome()
+
+    global name1, age1, address1, goal1
+
+    name1 = input("What's your name: ")
+    
+    if name1 == '*':
+        print("Try again!")
+        return inputt()
+
+    else:
+        pass
+
+
+    try:
+        age1 = int(input("What's your age: "))
+    except ValueError:
+        print("Enter your age in numbers!")
+        age1 = int(input("What's your age: "))
+
+    address1 = input("What's your address: ")
+
+    goal1 = input("What's your goal: ")
+
+
+def app(name1, age1, address1, goal1):
+    info['name'] = name1
+    info['age'] = age1
+    info['address'] = address1
+    info['goal'] = goal1
+    return
+
+inputt()
+app(name1, age1, address1, goal1)
+
+print("\n")
+  
+for x in info: 
+    print("{0} : {1}".format(x,info[x]))
+
+print('\n')
